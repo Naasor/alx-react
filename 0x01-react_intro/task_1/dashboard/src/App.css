@@ -1,0 +1,35 @@
+.App {
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.App-header img {
+  height: 200px;
+  width: 200px;
+}
+
+.App-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid #e0354b;
+}
+
+.App-header h1 {
+  color: #e0354b;
+}
+
+.App-body {
+  color: #000;
+  height: 40vh;
+  border-bottom: 3px solid #e0354b;
+}
+
+.App-body p {
+  margin: 2.5rem;
+  font-weight: 500;
+}
+
+.App-footer {
+  text-align: center;
+  font-style: italic;
+}
