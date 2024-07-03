@@ -5,7 +5,7 @@ import NotificationItem from "./NotificationItems";
 import PropTypes from "prop-types";
 import NotificationItemShape from './NotificationItemShapes';
 
-function Notifications({ displayDrawer = true, listNotifications = [] }) {
+function Notifications({ displayDrawer = false, listNotifications = [] }) {
   return (
     <React.Fragment>
       {displayDrawer ? (
