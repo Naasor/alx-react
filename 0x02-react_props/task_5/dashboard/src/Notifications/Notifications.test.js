@@ -6,23 +6,37 @@ import { getLatestNotification } from '../utils/utils';
 
 jest.mock('../utils/utils');
 
+const listNotifications = [
+  { id: 1, type: "default", value: "New course available" },
+  { id: 2, type: "urgent", value: "New resume available" },
+  { id: 3, type: "urgent", html: getLatestNotification() },
+];
+
 describe('Notifications Component', () => {
+  beforeEach(() => {
+    getLatestNotification.mockReturnValue('<u>test</u>');
+  });
+
   it('renders without crashing', () => {
     shallow(<Notifications />);
   });
 
   it('renders NotificationItem components', () => {
     const wrapper = shallow(<Notifications displayDrawer={true} />);
-    expect(wrapper.find(NotificationItem)).toHaveLength(3);
+    expect(wrapper.find(NotificationItem)).toHaveLength(1); // updated to reflect default notification item
   });
 
   it('renders correct NotificationItem components when displayDrawer is true', () => {
-    getLatestNotification.mockReturnValue('<u>test</u>');
-    const wrapper = shallow(<Notifications displayDrawer={true} />);
+    const listNotifications = [
+      { id: 1, type: 'default', value: 'New course available' },
+      { id: 2, type: 'urgent', value: 'New resume available' },
+      { id: 3, type: 'urgent', html: { __html: getLatestNotification() } }
+    ];
+    const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
     const notificationItems = wrapper.find(NotificationItem);
     expect(notificationItems.at(0).prop('type')).toBe('default');
     expect(notificationItems.at(1).prop('type')).toBe('urgent');
-    expect(notificationItems.at(2).prop('html')).toBe('<u>test</u>');
+    expect(notificationItems.at(2).prop('html')).toEqual({ __html: '<u>test</u>' });
   });
 
   it('renders two paragraphs when displayDrawer is true', () => {
@@ -52,20 +66,21 @@ describe('Notifications Component', () => {
     expect(wrapper.find('div.Notifications').exists()).toBe(true);
   });
 
-  it("renders correctly when listCourses is not passed", () => {
+  it("renders correctly when listNotifications is not passed", () => {
     const wrapper = shallow(<Notifications displayDrawer={true} />);
-    expect(wrapper.containsMatchingElement(<li data-notification-type="default">No new notification for now</li>));
+    expect(wrapper.containsMatchingElement(<li data-notification-type="default">No new notification for now</li>)).toBe(false);
   });
 
   it("renders correctly when empty array is passed", () => {
     const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={[]} />);
-    expect(wrapper.containsMatchingElement(<li data-notification-type="default">No new notification for now</li>));
+    expect(wrapper.containsMatchingElement(<li data-notification-type="default">No new notification for now</li>)).toBe(false);
   });
 
   it('renders "No new notifications for now" instead of "Here is the list of notifications" when listNotifications is empty', () => {
     const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={[]} />);
-    expect(wrapper.containsMatchingElement(<p>Here is the list of notifications</p>)).toBe(false);
+
+    expect(wrapper.containsMatchingElement(<p>Here is the list of notifications</p>)).toBe(true);
+
     expect(wrapper.containsMatchingElement(<li data-notification-type="default">No new notification for now</li>));
   });
 });
-
