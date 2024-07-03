@@ -44,5 +44,3 @@ describe('App component', () => {
     expect(wrapper.find(Login)).toHaveLength(0);
   });
 });
-
-
