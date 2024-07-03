@@ -32,10 +32,5 @@ CourseListRow.propTypes = {
     ]),
 };
 
-CourseListRow.defaultProps = {
-    isHeader: false,
-    textSecondCell: null,
-};
-
 export default CourseListRow;
 
