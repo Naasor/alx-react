@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const thStyle = {
-  backgroundColor: "#e65d6e",
-};
-
 const trStyle = {
-  backgroundColor: "#ef9aa5"
+  backgroundColor: "#f5f5f5ab"
 }
+
+const thStyle = {
+  backgroundColor: "#deb5b545",
+};
 
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
   return (
