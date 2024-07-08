@@ -24,7 +24,7 @@ describe('App component', () => {
 
   it('contains the Login component', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.find(Login)).toHaveLength(0);
+    expect(wrapper.find(Login)).toHaveLength(1);
   });
 
   it('contains the Footer component', () => {
