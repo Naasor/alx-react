@@ -6,7 +6,7 @@ function Header() {
   return (
     <>
       <div className={css(styles["App-header"])}>
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className={css(styles.img)} alt="logo" />
         <h1>School dashboard</h1>
       </div>
     </>

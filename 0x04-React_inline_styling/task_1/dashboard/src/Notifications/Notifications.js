@@ -80,17 +80,6 @@ const styles = StyleSheet.create({
     textAlign: "right",
   },
 
-  '[data-notification-type="default"]': {
-    color: "blue",
-  },
-
-  "[data-urgent]": {
-    color: "red",
-  },
-
-  '[data-notification-type="urgent"]': {
-    color: "red",
-  },
 });
 
 Notifications.propTypes = {
