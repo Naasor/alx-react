@@ -1,9 +1,3 @@
-.notification-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-
 [data-notification-type="default"] {
   color: blue;
 }

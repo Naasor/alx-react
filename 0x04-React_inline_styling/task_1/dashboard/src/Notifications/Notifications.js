@@ -71,11 +71,6 @@ const styles = StyleSheet.create({
     right: "0",
   },
 
-  "notification-header": {
-    display: "flex",
-    justifyContent: "space-between",
-  },
-
   menuItem: {
     textAlign: "right",
   },
