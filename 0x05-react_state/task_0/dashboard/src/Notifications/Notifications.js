@@ -45,6 +45,7 @@ class Notifications extends Component {
               aria-label="Close"
               onClick={(e) => {
                 console.log("Close button has been clicked");
+                this.props.handleHideDrawer();
               }}
             >
               <img src={closeIcon} alt="close icon" width="10px" />
