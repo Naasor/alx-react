@@ -1,8 +1,5 @@
 import { Seq } from 'immutable';
 
-/**
- * Capitalizes the first letter of a string
- */
 function formatName(name) {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
