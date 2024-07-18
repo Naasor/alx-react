@@ -1,9 +1,5 @@
 import { Seq } from 'immutable';
 
-function formatName(name) {
-  return name.charAt(0).toUpperCase() + name.slice(1);
-}
-
 function printBestStudents(object) {
   const seq = Seq(object);
 
@@ -12,6 +8,10 @@ function printBestStudents(object) {
   });
 
   const students = filteredStudents.toJS();
+
+  function formatName(name) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
 
   Object.keys(students).forEach(function(key) {
     students[key].firstName = formatName(students[key].firstName);
